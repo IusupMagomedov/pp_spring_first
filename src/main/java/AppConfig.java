@@ -1,3 +1,4 @@
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -12,9 +13,10 @@ public class AppConfig {
         return helloWorld;
     }
     @Bean(name="cat")
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public Cat getCat() {
         Cat cat = new Cat();
-        cat.setName("city");
+        cat.setName("kitty");
         return cat;
     }
 }
